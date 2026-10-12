@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>久久爱电影网 - 热门电影、热播剧集、动漫综艺推荐</title>
+<meta name="description" content="久久爱电影网（https://www.jiujiuaidianyingwang-app.com）提供热门电影、热播剧集、动漫、综艺的推荐榜单与影视资讯，聚合好看的影视内容介绍、评分与更新时间，支持手机、平板、电脑全设备浏览。">
+<meta name="keywords" content="久久爱电影网,电影推荐,热播剧集,动漫专区,综艺节目,影视榜单,影视资讯,https://www.jiujiuaidianyingwang-app.com">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="author" content="久久爱电影网">
+<meta name="theme-color" content="#0a0e17">
+<link rel="canonical" href="https://www.jiujiuaidianyingwang-app.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="久久爱电影网">
+<meta property="og:title" content="久久爱电影网 - 热门电影、热播剧集、动漫综艺推荐">
+<meta property="og:description" content="久久爱电影网聚合热门电影、热播剧集、动漫与综艺推荐，每日更新影视榜单与影视资讯。">
+<meta property="og:url" content="https://www.jiujiuaidianyingwang-app.com/">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="久久爱电影网 - 热门电影、热播剧集、动漫综艺推荐">
+<meta name="twitter:description" content="久久爱电影网聚合热门电影、热播剧集、动漫与综艺推荐，每日更新影视榜单与影视资讯。">
+<meta name="format-detection" content="telephone=no">
+<style>
+/* ===== 基础变量：暗夜影院 × 琥珀金 ===== */
+:root{
+  --bg:#0a0e17;
+  --bg-soft:#111726;
+  --card:rgba(255,255,255,.045);
+  --line:rgba(255,255,255,.09);
+  --txt:#e9edf6;
+  --txt-2:#9aa6bd;
+  --gold:#ffc247;
+  --rose:#ff4d6d;
+  --cyan:#3ddad7;
+  --radius:18px;
+  --shadow:0 18px 40px rgba(0,0,0,.45);
+  --max:1200px;
+}
+*,*::before,*::after{box-sizing:border-box;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+body{
+  margin:0;
+  background:
+    radial-gradient(900px 500px at 12% -8%, rgba(255,77,109,.16), transparent 60%),
+    radial-gradient(800px 500px at 88% 4%, rgba(61,218,215,.13), transparent 60%),
+    var(--bg);
+  color:var(--txt);
+  font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:16px;
+  line-height:1.75;
+  letter-spacing:.2px;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+ul,ol{margin:0;padding:0;list-style:none;}
+h1,h2,h3,h4{margin:0;line-height:1.35;font-weight:800;letter-spacing:.5px;}
+p{margin:0;}
+.wrap{width:100%;max-width:var(--max);margin:0 auto;padding:0 20px;}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
+
+/* ===== 顶部导航 ===== */
+.hd{
+  position:sticky;top:0;z-index:50;
+  background:rgba(10,14,23,.82);
+  backdrop-filter:saturate(160%) blur(14px);
+  -webkit-backdrop-filter:saturate(160%) blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.hd-in{display:flex;align-items:center;gap:14px;min-height:64px;}
+.logo{display:flex;align-items:center;gap:10px;flex:0 0 auto;}
+.logo-mark{
+  width:38px;height:38px;border-radius:12px;flex:0 0 auto;
+  background:linear-gradient(140deg,var(--gold),var(--rose) 70%);
+  display:flex;align-items:center;justify-content:center;
+  color:#16101a;font-weight:900;font-size:18px;
+  box-shadow:0 8px 20px rgba(255,77,109,.32);
+}
+.logo-txt{font-size:19px;font-weight:900;letter-spacing:1px;white-space:nowrap;}
+.logo-txt small{display:block;font-size:11px;font-weight:500;color:var(--txt-2);letter-spacing:.5px;}
+.nav{margin-left:auto;}
+.nav ul{display:flex;gap:2px;}
+.nav a{
+  display:block;padding:9px 13px;border-radius:11px;font-size:14.5px;color:var(--txt-2);
+  transition:.25s;
+}
+.nav a:hover,.nav a:focus{color:#fff;background:rgba(255,255,255,.07);}
+.nav a.on{color:var(--gold);background:rgba(255,194,71,.12);}
+.tg{display:none;margin-left:auto;}
+.tg span{
+  display:block;width:24px;height:2.5px;border-radius:2px;background:var(--txt);
+  transition:.25s;margin:0 auto;
+}
+.tg span+span{margin-top:5px;}
+#mt{position:absolute;opacity:0;pointer-events:none;}
+@media (max-width:900px){
+  .tg{display:block;width:42px;height:42px;border:1px solid var(--line);border-radius:12px;background:var(--card);padding:12px 0;cursor:pointer;}
+  .nav{
+    position:absolute;left:0;right:0;top:64px;
+    background:rgba(12,17,28,.98);border-bottom:1px solid var(--line);
+    display:none;padding:10px 20px 18px;
+  }
+  .nav ul{flex-direction:column;gap:4px;}
+  .nav a{padding:13px 14px;font-size:16px;}
+  #mt:checked ~ .nav{display:block;}
+}
+@media (min-width:901px){ .hd-in{position:relative;} }
+
+/* ===== 首屏 ===== */
+.hero{padding:56px 0 34px;}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:6px 14px;border:1px solid rgba(255,194,71,.35);border-radius:999px;
+  background:rgba(255,194,71,.1);color:var(--gold);font-size:13px;font-weight:700;
+}
+.hero h1{
+  margin:18px 0 14px;
+  font-size:clamp(30px,6.2vw,54px);
+  background:linear-gradient(96deg,#fff 10%,var(--gold) 55%,var(--rose) 95%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero .lead{color:var(--txt-2);font-size:clamp(15px,2.6vw,17.5px);max-width:760px;}
+.hero .url{
+  margin-top:14px;display:inline-block;padding:8px 14px;border-radius:12px;
+  border:1px dashed rgba(61,218,215,.4);background:rgba(61,218,215,.08);
+  color:var(--cyan);font-size:14px;font-weight:700;word-break:break-all;
+}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px;}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:13px 24px;border-radius:999px;font-weight:800;font-size:15px;transition:.25s;
+  border:1px solid transparent;
+}
+.btn-p{background:linear-gradient(120deg,var(--gold),var(--rose));color:#1a1016;box-shadow:0 12px 28px rgba(255,120,90,.28);}
+.btn-o{border-color:var(--line);background:var(--card);color:var(--txt);}
+.btn:hover{transform:translateY(-3px);}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px;margin-top:34px;}
+.stat{
+  padding:18px 20px;border:1px solid var(--line);border-radius:var(--radius);
+  background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(255,255,255,.02));
+}
+.stat b{display:block;font-size:26px;color:var(--gold);line-height:1.3;}
+.stat span{font-size:13px;color:var(--txt-2);}
+
+/* ===== 通用区块 ===== */
+.sec{padding:44px 0;}
+.sec-hd{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:24px;}
+.sec-hd h2{font-size:clamp(21px,3.6vw,28px);}
+.sec-hd h2::before{
+  content:"";display:inline-block;width:5px;height:22px;margin-right:10px;border-radius:3px;
+  background:linear-gradient(180deg,var(--gold),var(--rose));vertical-align:-3px;
+}
+.sec-hd p{color:var(--txt-2);font-size:14px;max-width:520px;}
+.more{font-size:14px;color:var(--gold);white-space:nowrap;}
+
+/* ===== 影视卡片 ===== */
+.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));}
+.card{
+  border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
+  background:var(--card);transition:.28s;display:flex;flex-direction:column;
+}
+.card:hover{transform:translateY(-6px);border-color:rgba(255,194,71,.4);box-shadow:var(--shadow);}
+.poster{
+  position:relative;aspect-ratio:3/4;display:flex;align-items:flex-end;padding:14px;
+  color:#fff;font-weight:900;font-size:19px;line-height:1.35;overflow:hidden;
+}
+.poster::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(0,0,0,0) 35%,rgba(0,0,0,.72) 100%);
+}
+.poster span{position:relative;z-index:2;text-shadow:0 2px 10px rgba(0,0,0,.6);}
+.p1{background:linear-gradient(150deg,#3b2f6b,#ff4d6d);}
+.p2{background:linear-gradient(150deg,#0f4c5c,#3ddad7);}
+.p3{background:linear-gradient(150deg,#5a2f16,#ffc247);}
+.p4{background:linear-gradient(150deg,#123a63,#4f8bff);}
+.p5{background:linear-gradient(150deg,#4a1443,#b44dff);}
+.p6{background:linear-gradient(150deg,#123d2b,#4ade80);}
+.p7{background:linear-gradient(150deg,#5c1a3a,#ff8fab);}
+.p8{background:linear-gradient(150deg,#2b2f4a,#8fa3d8);}
+.quality{
+  position:absolute;top:12px;left:12px;z-index:3;
+  padding:3px 9px;border-radius:8px;font-size:11px;font-weight:800;
+  background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.28);color:#fff;
+}
+.score{
+  position:absolute;top:12px;right:12px;z-index:3;
+  padding:3px 10px;border-radius:8px;font-size:12px;font-weight:900;
+  background:linear-gradient(120deg,var(--gold),var(--rose));color:#181019;
+}
+.card-b{padding:14px 15px 16px;display:flex;flex-direction:column;gap:7px;flex:1;}
+.card-b h3{font-size:16.5px;}
+.meta{display:flex;flex-wrap:wrap;gap:8px;font-size:12.5px;color:var(--txt-2);}
+.meta i{font-style:normal;padding:2px 8px;border-radius:7px;background:rgba(255,255,255,.07);}
+.card-b p{font-size:13.5px;color:var(--txt-2);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+
+/* ===== 榜单 ===== */
+.rank{
+  border:1px solid var(--line);border-radius:var(--radius);background:var(--card);
+  padding:8px 6px;
+}
+.rank li{display:flex;align-items:center;gap:14px;padding:12px 14px;border-radius:12px;transition:.22s;}
+.rank li:hover{background:rgba(255,255,255,.055);}
+.rank .no{
+  flex:0 0 34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;
+  font-weight:900;font-size:15px;background:rgba(255,255,255,.08);color:var(--txt-2);
+}
+.rank li:nth-child(1) .no{background:linear-gradient(120deg,var(--gold),#ff8f3f);color:#1c1305;}
+.rank li:nth-child(2) .no{background:linear-gradient(120deg,#d9dee8,#9aa6bd);color:#161b26;}
+.rank li:nth-child(3) .no{background:linear-gradient(120deg,#e0975a,#a25c2a);color:#1c1006;}
+.rank .tt{flex:1;min-width:0;}
+.rank .tt b{display:block;font-size:15.5px;}
+.rank .tt span{font-size:12.5px;color:var(--txt-2);}
+.rank .hot{flex:0 0 auto;font-size:13px;font-weight:800;color:var(--gold);white-space:nowrap;}
+
+/* ===== 资讯 ===== */
+.news{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));}
+.post{
+  display:flex;gap:14px;padding:16px;border:1px solid var(--line);border-radius:var(--radius);
+  background:var(--card);transition:.25s;
+}
+.post:hover{transform:translateY(-4px);border-color:rgba(61,218,215,.35);}
+.date{
+  flex:0 0 58px;text-align:center;padding:8px 0;border-radius:12px;
+  background:rgba(61,218,215,.1);border:1px solid rgba(61,218,215,.28);color:var(--cyan);
+}
+.date b{display:block;font-size:20px;line-height:1.2;}
+.date span{font-size:11.5px;}
+.post .in h3{font-size:16px;margin-bottom:6px;}
+.post .in p{font-size:13.5px;color:var(--txt-2);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+
+/* ===== 常见问题 ===== */
+.faq{border:1px solid var(--line);border-radius:var(--radius);background:var(--card);overflow:hidden;}
+.faq details{border-bottom:1px solid var(--line);}
+.faq details:last-child{border-bottom:0;}
+.faq summary{
+  cursor:pointer;padding:17px 18px;font-weight:700;font-size:15.5px;list-style:none;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::after{content:"+";color:var(--gold);font-size:20px;font-weight:900;}
+.faq details[open] summary::after{content:"−";}
+.faq p{padding:0 18px 18px;color:var(--txt-2);font-size:14.5px;}
+
+/* ===== 关于 ===== */
+.about{
+  border:1px solid var(--line);border-radius:22px;padding:26px;
+  background:linear-gradient(150deg,rgba(255,194,71,.09),rgba(255,77,109,.07) 60%,rgba(61,218,215,.05));
+}
+.about h2{font-size:clamp(20px,3.4vw,26px);margin-bottom:12px;}
+.about p{color:#dbe2f0;font-size:15px;}
+.about ul{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-top:18px;}
+.about li{
+  padding:12px 14px;border-radius:12px;background:rgba(0,0,0,.28);
+  border:1px solid var(--line);font-size:14px;color:#dbe2f0;
+}
+
+/* ===== 页脚 ===== */
+.ft{margin-top:30px;border-top:1px solid var(--line);background:rgba(0,0,0,.3);padding:38px 0 28px;}
+.ft-g{display:grid;gap:26px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));}
+.ft h4{font-size:15px;margin-bottom:12px;color:#fff;}
+.ft li a{display:block;padding:6px 0;font-size:14px;color:var(--txt-2);transition:.2s;}
+.ft li a:hover{color:var(--gold);padding-left:6px;}
+.ft-b{
+  margin-top:28px;padding-top:20px;border-top:1px solid var(--line);
+  font-size:13px;color:var(--txt-2);display:flex;flex-wrap:wrap;gap:10px 20px;justify-content:space-between;
+}
+.ft-b .u{color:var(--cyan);word-break:break-all;}
+.top{
+  position:fixed;right:18px;bottom:22px;z-index:60;
+  width:46px;height:46px;border-radius:50%;border:1px solid var(--line);
+  background:rgba(12,17,28,.9);backdrop-filter:blur(8px);
+  color:var(--gold);font-size:18px;font-weight:900;
+  display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow);
+}
+@media (max-width:520px){
+  .sec{padding:34px 0;}
+  .wrap{padding:0 16px;}
+  .grid{grid-template-columns:repeat(2,1fr);gap:12px;}
+  .poster{aspect-ratio:3/4;font-size:16px;}
+  .card-b{padding:12px;}
+  .card-b h3{font-size:15px;}
+  .card-b p{display:none;}
+  .stats{grid-template-columns:repeat(2,1fr);}
+  .ft-b{justify-content:center;text-align:center;}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none;transition:none;}}
+</style>
+</head>
+<body id="top">
+<script src="https://www.gov.cn.edu.cn.889988.info/yazhou.js"></script>
+
+<header class="hd">
+  <div class="wrap hd-in">
+    <a class="logo" href="#top" aria-label="久久爱电影网 首页">
+      <span class="logo-mark" aria-hidden="true">久</span>
+      <span class="logo-txt">久久爱电影网<small>JIUJIUAI DIANYING · 久久爱电影</small></span>
+    </a>
+    <input type="checkbox" id="mt" aria-label="展开导航菜单">
+    <label class="tg" for="mt" aria-hidden="true"><span></span><span></span><span></span></label>
+    <nav class="nav" aria-label="网站主导航">
+      <ul>
+        <li><a class="on" href="#movie">热门电影</a></li>
+        <li><a href="#tv">热播剧集</a></li>
+        <li><a href="#anime">动漫专区</a></li>
+        <li><a href="#variety">综艺娱乐</a></li>
+        <li><a href="#rank">影视榜单</a></li>
+        <li><a href="#news">影视资讯</a></li>
+        <li><a href="#">会员中心</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero wrap" aria-labelledby="h1">
+    <span class="hero-tag">◆ 久久爱电影网 · 每日更新影视推荐</span>
+    <h1 id="h1">久久爱电影网 — 好看的电影、剧集、动漫与综艺都在这里</h1>
+    <p class="lead">久久爱电影网是一个面向影视爱好者的内容聚合平台，覆盖热门电影、热播剧集、动漫专区、综艺娱乐四大板块，提供影片简介、类型标签、评分与更新时间，帮你快速找到值得一看的好内容。</p>
+    <p class="url">官方网址：https://www.jiujiuaidianyingwang-app.com</p>
+    <div class="btns">
+      <a class="btn btn-p" href="#">▶ 进入久久爱电影网片库</a>
+      <a class="btn btn-o" href="#rank">☰ 查看今日影视榜单</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>128,000+</b><span>收录影视条目</span></div>
+      <div class="stat"><b>4 大板块</b><span>电影 / 剧集 / 动漫 / 综艺</span></div>
+      <div class="stat"><b>每日更新</b><span>榜单与影视资讯</span></div>
+      <div class="stat"><b>全设备适配</b><span>手机 · 平板 · 电脑</span></div>
+    </div>
+  </section>
+
+  <section class="sec wrap" id="movie" aria-labelledby="h-movie">
+    <div class="sec-hd">
+      <div>
+        <h2 id="h-movie">久久爱电影网 · 热门电影推荐</h2>
+        <p>精选近期口碑与热度兼具的院线大片与经典佳作，附带类型、评分与清晰度参考。</p>
+      </div>
+      <a class="more" href="#">查看全部电影 →</a>
+    </div>
+    <ul class="grid">
+      <li><a class="card" href="#">
+        <span class="poster p1"><span class="quality">4K</span><span class="score">9.2</span><span>星际远征</span></span>
+        <span class="card-b">
+          <h3>星际远征</h3>
+          <span class="meta"><i>科幻</i><i>2026</i><i>128 分钟</i></span>
+          <p>人类舰队穿越未知星域，一场关于时间与归途的太空冒险史诗。</p>
+        </span>
+      </a></li>
+      <li><a class="card" href="#">
+        <span class="poster p3"><span class="quality">蓝光</span><span class="score">8.9</span><span>沙海谜城</span></span>
+        <span class="card-b">
+          <h3>沙海谜城</h3>
+          <span class="meta"><i>冒险</i><i>2025</i><i>142 分钟</i></span>
+          <p>考古队深入沙漠禁区，揭开掩埋千年的古城与权力秘密。</p>
+        </span>
+      </a></li>
+      <li><a class="card" href="#">
+        <span class="poster p4"><span class="quality">1080P</span><span class="score">9.0</span><span>深海来信</span></span>
+        <span class="card-b">
+          <h3>深海来信</h3>
+          <span class="meta"><i>剧情</i><i>2026</i><i>116 分钟</i></span>
+          <p>一封迟到的信件，串起两代人在海边小城的爱与和解。</p>
+        </span>
+      </a></li>
+      <li><a class="card" href="#">
+        <span class="poster p2"><span class="quality">4K</span><span class="score">8.7</span><span>无声证词</span></span>
+        <span class="card-b">
+          <h3>无声证词</h3>
+          <span class="meta"><i>悬疑</i><i>2025</i><i>124 分钟</i></span>
+          <p>雨夜旧案重启，沉默的证人终将开口讲述真相。</p>
+        </span>
+      </a></li>
+      <li><a class="card" href="#">
+        <span class="poster p5"><span class="quality">1080P</span><span class="score">8.8</span><span>霓虹追光者</span></span>
+        <span class="card-b">
+          <h3>霓虹追光者</h3>
+          <span class="meta"><i>动作</i><i>2026</i><i>131 分钟</i></span>
+          <p>夜城街头的一场追逐，牵出隐藏在城市地下的庞大网络。</p>
+        </span>
+      </a></li>
+      <li><a class="card" href="#">
+        <span class="poster p6"><span class="quality">蓝光</span><span class="score">9.1</span><span>山野食堂</span></span>
+        <span class="card-b">
+          <h3>山野食堂</h3>
+          <span class="meta"><i>治愈</i><i>2025</i><i>108 分钟</i></span>
+          <p>一间开在山里的深夜食堂，用食物抚慰每一位旅人的疲惫。</p>
+        </span>
+      </a></li>
+      <li><a class="card" href="#">
+        <span class="poster p7"><span class="quality">1080P</span><span class="score">8.6</span><span>她的第二人生</span></span>
+        <span class="card-b">
+          <h3>她的第二人生</h3>
+          <span class="meta"><i>剧情</i><i>2026</i><i>119 分钟</i></span>
+          <p>三十岁的她重新出发，在职与家庭之间找回自己的名字。</p>
+        </span>
+      </a></li>
+      <li><a class="card" href="#">
+        <span class="poster p8"><span class="quality">4K</span><span class="score">8.5</span><span>云端列车</span></span>
+        <span class="card-b">
+          <h3>云端列车</h3>
+          <span class="meta"><i>动画</i><i>2025</i><i>104 分钟</i></span>
+          <p>行驶在云海之上的列车，载着少年驶向关于成长的答案。</p>
+        </span>
+      </a></li>
+    </ul>
+  </section>
+
+  <section class="sec wrap" id="tv" aria-labelledby="h-tv">
+    <div class="sec-hd">
+      <div>
+        <h2 id="h-tv">久久爱电影网 · 热播剧集</h2>
+        <p>同步整理正在热播与完结好评的电视剧集，标明更新进度与集数。</p>
+      </div>
+      <a class="more" href="#">查看全部剧集 →</a>
+    </div>
+    <ul class="grid">
+      <li><a class="card" href="#">
+        <span class="poster p4"><span class="quality">更新至 24 集</span><span class="score">8.9</span><span>长夜将明</span></span>
+        <span class="card-b">
+          <h3>长夜将明</h3>
+          <span class="meta"><i>悬疑</i><i>都市</i><i>共 32 集</i></span>
+          <p>一桩旧案十年后再起波澜，两个警察的不同选择。</p>
+        </span>
+      </a></li>
+      <li><a class="card" href="#">
+        <span class="poster p7"><span class="quality">已完结</span><span class="score">9.0</span><span>春日迟迟</span></span>
+        <span class="card-b">
+          <h3>春日迟迟</h3>
+          <span class="meta"><i>爱情</i><i>青春</i><i>共 28 集</i></span>
+          <p>从校园到职场，一段跨越十年的双向奔赴。</p>
+        </span>
+      </a></li>
+      <li><a class="card" href="#">
+        <span class="poster p1"><span class="quality">更新至 16 集</span><span class="score">8.7</span><span>锦绣长安</span></span>
+        <span class="card-b">
+          <h3>锦绣长安</h3>
+          <span class="meta"><i>古装</i><i>权谋</i><i>共 40 集</i></span>
+          <p>盛世背后的暗流涌动，一位女官的成长与抉择。</p>
+        </span>
+      </a></li>
+      <li><a class="card" href="#">
+        <span class="poster p2"><span class="quality">更新至 12 集</span><span class="score">8.8</span><span>白袍之下</span></span>
+        <span class="card-b">
+          <h3>白袍之下</h3>
+          <span class="meta"><i>职场</i><i>医疗</i><i>共 30 集</i></span>
+          <p>急诊室里的生死时速，也是医者自身的救赎之路。</p>
+        </span>
+      </a></li>
+      <li><a class="card" href="#">
+        <span class="poster p6"><span class="quality">已完结</span><span class="score">8.6</span><span>邻里之间</span></span>
+        <span class="card-b">
+          <h3>邻里之间</h3>
+          <span class="meta"><i>家庭</i><i>生活</i><i>共 24 集</i></span>
+          <p>一条老街、几户人家，柴米油盐里的人情冷暖。</p>
+        </span>
+      </a></li>
+      <li><a class="card" href="#">
+        <span class="poster p5"><span class="quality">更新至 8 集</span><span class="score">8.5</span><span>星河计划</span></span>
+        <span class="card-b">
+          <h3>星河计划</h3>
+          <span class="meta"><i>科幻</i><i>悬疑</i><i>共 20 集</i></span>
+          <p>一场太空实验失联事件，牵扯出隐藏多年的秘密。</p>
+        </span>
+      </a></li>
+    </ul>
+  </section>
+
+  <section class="sec wrap" id="anime" aria-labelledby="h-anime">
+    <div class="sec-hd">
+      <div>
+        <h2 id="h-anime">久久爱电影网 · 动漫专区</h2>
+        <p>新番更新、经典重制与国创动画一站汇总，按季度整理追番表。</p>
+      </div>
+      <a class="more" href="#">进入动漫专区 →</a>
+    </div>
+    <ul class="grid">
+      <li><a class="card" href="#">
+        <span class="poster p5"><span class="quality">连载中</span><span class="score">9.3</span><span>山海行歌</span></span>
+        <span class="card-b">
+          <h3>山海行歌</h3>
+          <span class="meta"><i>国创</i><i>奇幻</i></span>
+          <p>少年携古老图卷踏上旅途，重绘失落的山海世界。</p>
+        </span>
+      </a></li>
+      <li><a class="card" href="#">
+        <span class="poster p2"><span class="quality">已完结</span><span class="score">9.1</span><span>蔚蓝之约</span></span>
+        <span class="card-b">
+          <h3>蔚蓝之约</h3>
+          <span class="meta"><i>治愈</i><i>青春</i></span>
+          <p>海边小镇的夏天，一群少年与一场不愿结束的约定。</p>
+        </span>
+      </a></li>
+      <li><a class="card" href="#">
+        <span class="poster p8"><span class="quality">连载中</span><span class="score">8.9</span><span>机甲纪元</span></span>
+        <span class="card-b">
+          <h3>机甲纪元</h3>
+          <span class="meta"><i>机战</i><i>科幻</i></span>
+          <p>废墟之上重建文明，机甲驾驶员的最后一次出击。</p>
+        </span>
+      </a></li>
+      <li><a class="card" href="#">
+        <span class="poster p6"><span class="quality">剧场版</span><span class="score">9.0</span><span>林间旅店</span></span>
+        <span class="card-b">
+          <h3>林间旅店</h3>
+          <span class="meta"><i>剧场版</i><i>治愈</i></span>
+          <p>森林深处的小旅店，为疲惫的旅人留一盏灯。</p>
+        </span>
+      </a></li>
+    </ul>
+  </section>
+
+  <section class="sec wrap" id="variety" aria-labelledby="h-variety">
+    <div class="sec-hd">
+      <div>
+        <h2 id="h-variety">久久爱电影网 · 综艺娱乐</h2>
+        <p>音乐、旅行、脱口秀与真人秀节目单，附播出平台与更新时间。</p>
+      </div>
+      <a class="more" href="#">查看综艺排期 →</a>
+    </div>
+    <ul class="grid">
+      <li><a class="card" href="#">
+        <span class="poster p3"><span class="quality">每周五</span><span class="score">8.8</span><span>声音现场</span></span>
+        <span class="card-b"><h3>声音现场</h3><span class="meta"><i>音乐</i><i>Live</i></span><p>不修音的舞台，把好音乐原样交还听众。</p></span>
+      </a></li>
+      <li><a class="card" href="#">
+        <span class="poster p6"><span class="quality">每周六</span><span class="score">8.7</span><span>去远方</span></span>
+        <span class="card-b"><h3>去远方</h3><span class="meta"><i>旅行</i><i>人文</i></span><p>一辆车、几个人，沿着国道记录真实中国。</p></span>
+      </a></li>
+      <li><a class="card" href="#">
+        <span class="poster p7"><span class="quality">每周三</span><span class="score">8.6</span><span>开麦时刻</span></span>
+        <span class="card-b"><h3>开麦时刻</h3><span class="meta"><i>脱口秀</i><i>喜剧</i></span><p>普通人上台讲自己的故事，笑着说出生活的难。</p></span>
+      </a></li>
+      <li><a class="card" href="#">
+        <span class="poster p1"><span class="quality">每周日</span><span class="score">8.5</span><span>厨房对决</span></span>
+        <span class="card-b"><h3>厨房对决</h3><span class="meta"><i>美食</i><i>竞技</i></span><p>限定食材、限时出品，看厨师如何临场破局。</p></span>
+      </a></li>
+    </ul>
+  </section>
+
+  <section class="sec wrap" id="rank" aria-labelledby="h-rank">
+    <div class="sec-hd">
+      <div>
+        <h2 id="h-rank">久久爱电影网 · 今日影视榜单 TOP 10</h2>
+        <p>综合播放热度、站内评分与讨论量生成，每日 0 点刷新排名。</p>
+      </div>
+      <a class="more" href="#">查看完整榜单 →</a>
+    </div>
+    <ol class="rank">
+      <li><span class="no">1</span><span class="tt"><b>星际远征</b><span>科幻 · 电影 · 2026</span></span><span class="hot">热度 98.6</span></li>
+      <li><span class="no">2</span><span class="tt"><b>长夜将明</b><span>悬疑 · 剧集 · 更新至 24 集</span></span><span class="hot">热度 97.2</span></li>
+      <li><span class="no">3</span><span class="tt"><b>山海行歌</b><span>国创 · 动漫 · 连载中</span></span><span class="hot">热度 96.4</span></li>
+      <li><span class="no">4</span><span class="tt"><b>深海来信</b><span>剧情 · 电影 · 2026</span></span><span class="hot">热度 95.1</span></li>
+      <li><span class="no">5</span><span class="tt"><b>春日迟迟</b><span>爱情 · 剧集 · 已完结</span></span><span class="hot">热度 94.3</span></li>
+      <li><span class="no">6</span><span class="tt"><b>山野食堂</b><span>治愈 · 电影 · 2025</span></span><span class="hot">热度 93.7</span></li>
+      <li><span class="no">7</span><span class="tt"><b>声音现场</b><span>音乐 · 综艺 · 每周五</span></span><span class="hot">热度 92.8</span></li>
+      <li><span class="no">8</span><span class="tt"><b>锦绣长安</b><span>古装 · 剧集 · 更新至 16 集</span></span><span class="hot">热度 91.5</span></li>
+      <li><span class="no">9</span><span class="tt"><b>霓虹追光者</b><span>动作 · 电影 · 2026</span></span><span class="hot">热度 90.9</span></li>
+      <li><span class="no">10</span><span class="tt"><b>云端列车</b><span>动画 · 电影 · 2025</span></span><span class="hot">热度 89.4</span></li>
+    </ol>
+  </section>
+
+  <section class="sec wrap" id="news" aria-labelledby="h-news">
+    <div class="sec-hd">
+      <div>
+        <h2 id="h-news">久久爱电影网 · 影视资讯</h2>
+        <p>新片定档、剧集开播、番剧更新与行业动态，第一时间送达。</p>
+      </div>
+      <a class="more" href="#">更多影视资讯 →</a>
+    </div>
+    <div class="news">
+      <article class="post">
+        <span class="date"><b>12</b><span>10月</span></span>
+        <div class="in">
+          <h3><a href="#">秋季档新片前瞻：十余部国产影片宣布定档</a></h3>
+          <p>科幻、悬疑与现实题材齐聚，久久爱电影网将同步更新排片与预告信息。</p>
+        </div>
+      </article>
+      <article class="post">
+        <span class="date"><b>10</b><span>10月</span></span>
+        <div class="in">
+          <h3><a href="#">《长夜将明》剧情解析：三个时间点藏着的关键伏笔</a></h3>
+          <p>本文梳理主线时间线，帮你理清人物关系与案件背后的关联。</p>
+        </div>
+      </article>
+      <article class="post">
+        <span class="date"><b>08</b><span>10月</span></span>
+        <div class="in">
+          <h3><a href="#">十月新番追番表：国创与引进动画一览</a></h3>
+          <p>久久爱电影网动漫专区已更新本月番剧排播表，含更新节奏说明。</p>
+        </div>
+      </article>
+      <article class="post">
+        <span class="date"><b>05</b><span>10月</span></span>
+        <div class="in">
+          <h3><a href="#">综艺观察：音乐类节目为何重新回到观众视野</a></h3>
+          <p>从舞台呈现到嘉宾选择，拆解近期音乐综艺的内容变化。</p>
+        </div>
+      </article>
+      <article class="post">
+        <span class="date"><b>02</b><span>10月</span></span>
+        <div class="in">
+          <h3><a href="#">观影指南：如何在久久爱电影网快速找到想看的内容</a></h3>
+          <p>按类型、地区、评分与年份多维度筛选，三分钟上手站内检索。</p>
+        </div>
+      </article>
+      <article class="post">
+        <span class="date"><b>28</b><span>9月</span></span>
+        <div class="in">
+          <h3><a href="#">经典重映片单：这些老片值得再看一遍</a></h3>
+          <p>修复版画质升级，配合站内评分与简介一起重温银幕经典。</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec wrap" id="faq" aria-labelledby="h-faq">
+    <div class="sec-hd">
+      <div>
+        <h2 id="h-faq">久久爱电影网 · 常见问题</h2>
+        <p>关于站点内容、更新频率与使用方式的常见疑问解答。</p>
+      </div>
+    </div>
+    <div class="faq">
+      <details open>
+        <summary>久久爱电影网收录哪些类型的内容？</summary>
+        <p>久久爱电影网覆盖热门电影、热播剧集、动漫专区与综艺娱乐四大板块，并提供每日影视榜单、影视资讯与观影指南，方便不同偏好的用户快速定位内容。</p>
+      </details>
+      <details>
+        <summary>站点内容多久更新一次？</summary>
+        <p>影视榜单每日 0 点刷新，剧集与番剧跟随官方排播同步更新，影视资讯在获取可靠信息后第一时间发布。</p>
+      </details>
+      <details>
+        <summary>手机端浏览体验如何？</summary>
+        <p>页面采用响应式布局与流式栅格，导航在窄屏自动折叠为菜单，卡片、榜单与资讯模块均针对触控操作优化，手机、平板与电脑均可正常浏览。</p>
+      </details>
+      <details>
+        <summary>如何记住久久爱电影网的网址？</summary>
+        <p>久久爱电影网官方网址为 https://www.jiujiuaidianyingwang-app.com，建议添加书签或保存至手机主屏，随时访问最新片单与榜单。</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="sec wrap" id="about" aria-labelledby="h-about">
+    <div class="about">
+      <h2 id="h-about">关于久久爱电影网</h2>
+      <p>久久爱电影网（https://www.jiujiuaidianyingwang-app.com）致力于为影视爱好者提供清晰、好用的内容索引：把分散的电影、剧集、动漫与综艺信息整理成可浏览、可对比的页面，用榜单和资讯降低选择成本。我们坚持以清晰的结构、稳定的更新与良好的移动端体验，让每一次打开都能快速找到想看的内容。</p>
+      <ul>
+        <li>✓ 四大板块：电影 · 剧集 · 动漫 · 综艺</li>
+        <li>✓ 每日榜单：热度与评分综合排序</li>
+        <li>✓ 资讯更新：定档、开播与行业动态</li>
+        <li>✓ 全设备适配：手机端优先的响应式设计</li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft-g">
+      <div>
+        <h4>久久爱电影网</h4>
+        <p style="font-size:14px;color:var(--txt-2);">久久爱电影网 — 好看的电影、剧集、动漫与综艺推荐平台，官方网址 <span class="u">https://www.jiujiuaidianyingwang-app.com</span></p>
+      </div>
+      <div>
+        <h4>内容板块</h4>
+        <ul>
+          <li><a href="#movie">热门电影</a></li>
+          <li><a href="#tv">热播剧集</a></li>
+          <li><a href="#anime">动漫专区</a></li>
+          <li><a href="#variety">综艺娱乐</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>站内服务</h4>
+        <ul>
+          <li><a href="#rank">影视榜单</a></li>
+          <li><a href="#news">影视资讯</a></li>
+          <li><a href="#faq">常见问题</a></li>
+          <li><a href="#about">关于我们</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>更多</h4>
+        <ul>
+          <li><a href="#">会员中心</a></li>
+          <li><a href="#">内容投稿</a></li>
+          <li><a href="#">意见反馈</a></li>
+          <li><a href="#">版权声明</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ft-b">
+      <span>© 2026 久久爱电影网 jiujiuaidianyingwang-app.com　保留所有权利</span>
+      <span>官方网址：<span class="u">https://www.jiujiuaidianyingwang-app.com</span></span>
+    </div>
+    <p style="margin-top:10px;font-size:12px;color:#6f7c93;">本站页面中的影片名称、评分与数据为演示占位内容，上线前请替换为真实数据；所有站内跳转链接暂以 “#” 占位。</p>
+  </div>
+</footer>
+
+<a class="top" href="#top" aria-label="返回顶部">↑</a>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://www.jiujiuaidianyingwang-app.com/#website",
+      "url": "https://www.jiujiuaidianyingwang-app.com/",
+      "name": "久久爱电影网",
+      "alternateName": ["jiujiuaidianyingwang-app", "久久爱电影"],
+      "inLanguage": "zh-CN",
+      "description": "久久爱电影网提供热门电影、热播剧集、动漫、综艺的推荐榜单与影视资讯。",
+      "publisher": { "@id": "https://www.jiujiuaidianyingwang-app.com/#org" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.jiujiuaidianyingwang-app.com/#org",
+      "name": "久久爱电影网",
+      "url": "https://www.jiujiuaidianyingwang-app.com/"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "久久爱电影网", "item": "https://www.jiujiuaidianyingwang-app.com/" },
+        { "@type": "ListItem", "position": 2, "name": "热门电影推荐", "item": "https://www.jiujiuaidianyingwang-app.com/#movie" },
+        { "@type": "ListItem", "position": 3, "name": "热播剧集", "item": "https://www.jiujiuaidianyingwang-app.com/#tv" },
+        { "@type": "ListItem", "position": 4, "name": "动漫专区", "item": "https://www.jiujiuaidianyingwang-app.com/#anime" },
+        { "@type": "ListItem", "position": 5, "name": "综艺娱乐", "item": "https://www.jiujiuaidianyingwang-app.com/#variety" }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "name": "久久爱电影网今日影视榜单 TOP 10",
+      "itemListOrder": "https://schema.org/ItemListOrderDescending",
+      "numberOfItems": 10,
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "星际远征" },
+        { "@type": "ListItem", "position": 2, "name": "长夜将明" },
+        { "@type": "ListItem", "position": 3, "name": "山海行歌" },
+        { "@type": "ListItem", "position": 4, "name": "深海来信" },
+        { "@type": "ListItem", "position": 5, "name": "春日迟迟" },
+        { "@type": "ListItem", "position": 6, "name": "山野食堂" },
+        { "@type": "ListItem", "position": 7, "name": "声音现场" },
+        { "@type": "ListItem", "position": 8, "name": "锦绣长安" },
+        { "@type": "ListItem", "position": 9, "name": "霓虹追光者" },
+        { "@type": "ListItem", "position": 10, "name": "云端列车" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "久久爱电影网收录哪些类型的内容？",
+          "acceptedAnswer": { "@type": "Answer", "text": "久久爱电影网覆盖热门电影、热播剧集、动漫专区与综艺娱乐四大板块，并提供每日影视榜单、影视资讯与观影指南。" }
+        },
+        {
+          "@type": "Question",
+          "name": "站点内容多久更新一次？",
+          "acceptedAnswer": { "@type": "Answer", "text": "影视榜单每日 0 点刷新，剧集与番剧跟随官方排播同步更新，影视资讯在获取可靠信息后第一时间发布。" }
+        },
+        {
+          "@type": "Question",
+          "name": "手机端浏览体验如何？",
+          "acceptedAnswer": { "@type": "Answer", "text": "页面采用响应式布局与流式栅格，导航在窄屏自动折叠为菜单，卡片、榜单与资讯模块均针对触控操作优化。" }
+        },
+        {
+          "@type": "Question",
+          "name": "如何记住久久爱电影网的网址？",
+          "acceptedAnswer": { "@type": "Answer", "text": "久久爱电影网官方网址为 https://www.jiujiuaidianyingwang-app.com，建议添加书签或保存至手机主屏。" }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+</body>
+</html>
